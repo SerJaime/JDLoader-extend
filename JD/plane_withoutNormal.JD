@@ -1,0 +1,74 @@
+{
+    "meta": 
+    {
+        "version": 1.3,
+        "generator": "cgdev json exporter"
+    },
+    "materials": [
+        {
+            "name": "Material_001",
+            "diffuse": [0.64,0.64,0.64],
+            "specular": [0.025,0.025,0.025],
+            "glossiness": 32.6421,
+            "opacity": 1,
+            "maps": [
+                {
+                    "name": "Texture",
+                    "type": "normal",
+                    "uvsIndex": 0,
+                    "file": "normal.png"
+                }
+            ]
+        }
+    ],
+    "model": 
+    {
+        "meshes": [
+            {
+                "meta": 
+                {
+                    "vertNum": 5,
+                    "faceNum": 4,
+                    "vertElementNum": 5
+                },
+                "name": "Plane",
+                "node": 1,
+                "verts": [-1,0,1,1,0,1,-1,0,-1,1,0,-1,0,0.754579,0],
+                "vertElement": 
+                {
+                    "vertIndices": [1,3,4,0,2]
+                },
+                "face": 
+                {
+                    "vertElementIndices": [0,1,2,3,0,2,1,4,2,2,4,3],
+                    "groups": [
+                        {
+                            "start": 0,
+                            "count": 12,
+                            "materialIndex": 0
+                        }
+                    ]
+                }
+            }
+        ]
+    },
+    "hierarchy": 
+    {
+        "nodes": [
+            {
+                "name": "SceneRoot",
+                "parent": -1,
+                "pos": [0,0,0],
+                "scl": [1,1,1],
+                "rot": [0,0,0,1]
+            },
+            {
+                "name": "Plane",
+                "parent": 0,
+                "pos": [0,0,0],
+                "scl": [39.3701,39.3701,39.3701],
+                "rot": [0,0,0,1]
+            }
+        ]
+    }
+}

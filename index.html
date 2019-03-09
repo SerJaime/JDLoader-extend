@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script src="lib/three.min.js"></script>
+<script src="dist/JDLoader_extend.js"></script>
+<script>
+  var loader = new JDLoader_Ext.LinearLoader();
+  loader.initSources([
+    './JD/base.JD',
+    {
+      src: './JD/ceshi.JD',
+      success: function (data, source) {
+        console.log(source)
+      },
+      error: function (error, source) {
+        console.log(source.src + '加载失败');
+      }
+    },
+    './JD/t5.JD',
+    './JD/anim_1.JD'
+  ])
+
+  loader.success(function (data, source) {console.log(JSON.parse(data))
+    new JDLoader_Ext.JDLoader().parse(JSON.parse(data), function (e) {
+      console.log(e);
+    })
+  })
+  loader.allLoaded(function () {
+    console.log('全部加载完成');
+  });
+  loader.start();
+
+  // var JDloader = new JDLoader_Ext.JDLoader();
+  // JDloader.load('./JD/base.JD', function (data) {
+  //   console.log(data);
+  // });
+
+  // var Animloader = new JDLoader_Ext.AnimLoader();
+  // Animloader.load('./JD/anim_1.JD', function (animation) {
+  //   console.log(animation);
+  // })
+
+  // var loader = new JDLoader_Ext.FileLoader();
+  // loader.load('./JD/anim_1.JD', function (e) {
+  //   new JDLoader_Ext.AnimLoader().parse(e, function (data) {
+  //     console.log(data);
+  //   })
+  // })
+
+  // var loader = new JDLoader_Ext.FileLoader();
+  // loader.load('./JD/base.JD', function (e) {
+  //   // console.log(e);
+  //   new JDLoader_Ext.JDLoader().parse(JSON.parse(e), function (data) {
+  //     console.log(data);
+  //   })
+  // })
+</script>
+</body>
+</html>
+
