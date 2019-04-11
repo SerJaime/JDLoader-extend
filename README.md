@@ -10,9 +10,9 @@ JDLoader_extend插件是对原JDLoader插件的一个功能扩展，使用ES6模
 
 node环境下执行：
 
-npm install — 下载依赖包
-npm run build — 编译打包
-npm run server — 开启后端服务
+- npm install — 下载依赖包
+- npm run build — 编译打包
+- npm run server — 开启后端服务
 
 JDLoader_extend插件暴露出一个JDLoader_Ext变量，可通过该变量实例化各个类
 
@@ -23,11 +23,13 @@ JDLoader_extend插件暴露出一个JDLoader_Ext变量，可通过该变量实�
 ##### Methods
 
 .load ( url : String, onLoad : Function, onError : Function , onFinaly : Function )
-url（必传）— 要获取文件的路径
-onLoad — 加载成功的回调
-onError — 加载失败的回调
-onFinaly — 无论加载成功还是失败都会执行的回调，入参result为加载的结果
+
 该方法是对Ajax的一个封装，用于获取文件资源。
+
+- url（必传）— 要获取文件的路径
+- onLoad — 加载成功的回调
+- onError — 加载失败的回调
+- onFinaly — 无论加载成功还是失败都会执行的回调，入参result为加载的结果
 
 ##### Example
 ```javascript
@@ -56,15 +58,19 @@ loader.load(
 
 ##### Methods
 .load ( url : String, callback : Function )
-url（必传）— 要加载模型的路径
-callback — 加载完的回调
+
 内部调用FileLoader类的load方法获取文件并调用parse方法解析数据
 
+- url（必传）— 要加载模型的路径
+- callback — 加载完的回调
+
 .parse ( jdata : String/Object, callback : Function, texturePath : String )
-jdata（必传）— jd模型数据，可为字符串或者JSON.parse转换后的对象
-callback — 解析完的回调
-texturePath — 贴图路径
+
 解析jd文件数据
+
+- jdata（必传）— jd模型数据，可为字符串或者JSON.parse转换后的对象
+- callback — 解析完的回调
+- texturePath — 贴图路径
 
 ##### Example
 
@@ -91,14 +97,18 @@ new JDLoader_Ext.JDLoader().parse(e, function (data) {
 
 ##### Methods
 .load ( url : String, callback : Function )
-url（必传）— 要加载动画的路径
-callback — 加载完的回调
+
 内部调用FileLoader类的load方法获取文件并调用parse方法解析数据
 
+- url（必传）— 要加载动画的路径
+- callback — 加载完的回调
+
 .parse ( jdata : String/Object, callback : Function )
-jdata（必传）— jd动画数据，可为字符串或者JSON.parse转换后的对象
-callback — 解析完的回调
+
 解析jd动画数据，转换为THREE.AnimationClip对象
+
+- jdata（必传）— jd动画数据，可为字符串或者JSON.parse转换后的对象
+- callback — 解析完的回调
 
 ##### Example
 
@@ -123,12 +133,16 @@ loader.load('./JD/anim_1.JD', function (e) {
 #### LinearLoader类
 
 ##### Constructor
+
 LinearLoader ( srcArray : Array, holdLinear : Boolean )
-srcArray — 需加载的资源数组，数组元素可为字符串或对象
-holdLinear — 加载失败是否继续加载队列，默认为true
+
 可以在实例化LinearLoader类的时候传入参数，也可以调用initSources方法初始化数据
 
+- srcArray — 需加载的资源数组，数组元素可为字符串或对象
+- holdLinear — 加载失败是否继续加载队列，默认为true
+
 ##### Properties
+
 .Loader— 加载器，默认为FileLoader对象
 .sources — 资源队列，为Queue对象
 .holdLinear — 加载失败是否继续加载队列，默认为true
@@ -141,9 +155,11 @@ holdLinear — 加载失败是否继续加载队列，默认为true
 
 ##### Methods
 .initSources ( srcArray : Array, holdLinear : Boolean )
-srcArray — 需加载的资源数组，数组元素可为字符串或对象
-holdLinear — 加载失败是否继续加载队列，默认为true
+
 初始化队列，在执行start方法前有效
+
+- srcArray — 需加载的资源数组，数组元素可为字符串或对象
+- holdLinear — 加载失败是否继续加载队列，默认为true
 
 .start
 开始加载队列
@@ -152,7 +168,8 @@ holdLinear — 加载失败是否继续加载队列，默认为true
 加载队头资源
 
 .appendSource ( source : String/Object )
-source — 资源，可为路径字符串或对象
+
+- source — 资源，可为路径字符串或对象
 source对象有以下属性
 src — 资源路径（必传）
 success — 该资源加载成功的回调，会覆盖默认的回调handleSuccess
